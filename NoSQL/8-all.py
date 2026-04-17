@@ -2,12 +2,12 @@
 """ Module for using PyMongo """
 
 def list_all(mongo_collection):
-    """ Lists all documents in a collection """
-
-    doc_list = []
-
-    docs = mongo_collection.find()
-    for doc in docs:
-        doc_list.append(doc)
-
-    return doc_list
+    """
+        List all docs
+    """
+    documents = []
+    if mongo_collection is not None:
+        cursor = mongo_collection.find()
+        for doc in cursor:
+            documents.append(doc)
+    return documents
