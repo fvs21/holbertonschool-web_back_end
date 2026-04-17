@@ -3,7 +3,7 @@
 
 from pymongo import MongoClient
 
-if __name__ == "__main__":
+def log_stats():
     client = MongoClient('mongodb://127.0.0.1:27017')
     
     db = client.logs
@@ -21,3 +21,7 @@ if __name__ == "__main__":
     
     status_check = collection.count_documents({"method": "GET", "path": "/status"})
     print(f"{status_check} status check")
+
+
+if __name__ == "__main__":
+    log_stats()
